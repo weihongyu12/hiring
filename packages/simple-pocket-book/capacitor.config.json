@@ -1,0 +1,13 @@
+{
+  "appId": "io.pocketbook.app",
+  "appName": "simple-pocket-book",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
