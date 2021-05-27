@@ -1,6 +1,7 @@
 import {
   HomeOutlined as HomeIcon,
   AccountCircleOutlined as AccountCircleOutlinedIcon,
+  ReceiptOutlined as ReceiptOutlinedIcon,
 } from '@material-ui/icons';
 import { NavigationConfig } from 'types';
 
@@ -15,6 +16,12 @@ const navigationConfig: NavigationConfig = [
         title: '首页',
         href: '/home',
         icon: HomeIcon,
+        permission: ['GENERAL_USER', 'ADMINISTRATOR'],
+      },
+      {
+        title: '账单',
+        href: '/bill',
+        icon: ReceiptOutlinedIcon,
         permission: ['GENERAL_USER', 'ADMINISTRATOR'],
       },
       {
