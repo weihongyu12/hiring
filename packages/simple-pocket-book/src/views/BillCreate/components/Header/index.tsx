@@ -2,13 +2,11 @@ import React, { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
   Breadcrumbs,
-  Button,
   Grid,
   Link,
   Typography,
   Theme,
 } from '@material-ui/core';
-import { AddCircleOutline as AddCircleOutlineIcon } from '@material-ui/icons';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import clsx from 'clsx';
 
@@ -37,25 +35,21 @@ const Header: FC<HeaderProps> = ({ className = '' }) => {
             >
               首页
             </Link>
-            <Typography color="textPrimary">账单</Typography>
+            <Link
+              component={RouterLink}
+              to="/bill"
+              color="inherit"
+            >
+              账单
+            </Link>
+            <Typography color="textPrimary">创建账单</Typography>
           </Breadcrumbs>
           <Typography
             component="h1"
             variant="h3"
           >
-            账单
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Button
-            component={RouterLink}
-            to="/bill/new"
-            color="primary"
-            variant="contained"
-            startIcon={<AddCircleOutlineIcon />}
-          >
             创建账单
-          </Button>
+          </Typography>
         </Grid>
       </Grid>
     </div>

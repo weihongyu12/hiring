@@ -80,6 +80,11 @@ const routes: RouteConfig[] = [
         component: lazy(() => import(/* webpackChunkName: 'bill' */ 'views/Bill')),
       },
       {
+        path: '/bill/new',
+        exact: true,
+        component: lazy(() => import(/* webpackChunkName: 'bill-create' */ 'views/BillCreate')),
+      },
+      {
         component: () => <Redirect to="/errors/error-404" />,
       },
     ],

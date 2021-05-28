@@ -17,3 +17,13 @@ export interface BillIndexRequest {
 }
 
 export type BillIndexResponse = PaginationResponse<Bill[]>;
+
+export interface BillCreateRequest {
+  type?: '0' | '1';
+  amount?: string;
+  categoryId?: string;
+}
+
+export interface BillCreateResponse {
+  error: boolean;
+}
