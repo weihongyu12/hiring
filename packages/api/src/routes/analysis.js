@@ -14,7 +14,7 @@ router.get('/', async (ctx, next) => {
   });
 
   const billModel = new BillModel();
-  const json = await billModel.index();
+  const bill = await billModel.index();
 
   const filterParams = {
     category: params.category,
@@ -25,12 +25,12 @@ router.get('/', async (ctx, next) => {
     endTime: params.endTime,
   };
 
-  const incomeJson = filterData(json, {
+  const incomeJson = filterData(bill, {
     type: 1,
     ...filterParams,
   });
 
-  const expenditureJson = filterData(json, {
+  const expenditureJson = filterData(bill, {
     type: 0,
     ...filterParams,
   });
