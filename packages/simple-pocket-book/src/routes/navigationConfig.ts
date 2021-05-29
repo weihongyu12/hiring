@@ -2,6 +2,7 @@ import {
   HomeOutlined as HomeIcon,
   AccountCircleOutlined as AccountCircleOutlinedIcon,
   ReceiptOutlined as ReceiptOutlinedIcon,
+  DonutLargeOutlined as DonutLargeOutlinedIcon,
 } from '@material-ui/icons';
 import { NavigationConfig } from 'types';
 
@@ -22,6 +23,12 @@ const navigationConfig: NavigationConfig = [
         title: '账单',
         href: '/bill',
         icon: ReceiptOutlinedIcon,
+        permission: ['GENERAL_USER', 'ADMINISTRATOR'],
+      },
+      {
+        title: '账单统计',
+        href: '/analytics',
+        icon: DonutLargeOutlinedIcon,
         permission: ['GENERAL_USER', 'ADMINISTRATOR'],
       },
       {

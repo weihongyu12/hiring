@@ -5,3 +5,4 @@ export * from './accountTypes';
 export * from './messageTypes';
 export * from './billTypes';
 export * from './categoryTypes';
+export * from './analyticsTypes';
