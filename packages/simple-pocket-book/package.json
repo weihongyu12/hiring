@@ -67,7 +67,7 @@
     "@sentry/react": "^6.3.6",
     "@sentry/tracing": "^6.3.6",
     "accounting": "^0.4.1",
-    "apexcharts": "^3.26.2",
+    "apexcharts": "^3.26.3",
     "async-es": "^3.2.0",
     "autosuggest-highlight": "^3.1.1",
     "axios": "^0.21.1",
