@@ -21,33 +21,36 @@ import '@fontsource/noto-sans/devanagari.css';
 import palette from './palette';
 import overrides from './overrides';
 
+export { palette };
+export const fontFamily = [
+  'Roboto',
+  '-apple-system',
+  'BlinkMacSystemFont',
+  '"SF Pro Text"',
+  '"Segoe UI"',
+  '"Helvetica Neue"',
+  'Helvetica',
+  'Verdana',
+  'Tahoma',
+  'Arial',
+  '"Noto Sans"',
+  '"Noto Sans CJK SC"',
+  '"Noto Sans SC"',
+  '"PingFang SC"',
+  '"Microsoft YaHei UI"',
+  '"Microsoft YaHei"',
+  'sans-serif',
+  '"Noto Color Emoji"',
+  '"Apple Color Emoji"',
+  '"Segoe UI Emoji"',
+  '"Segoe UI Symbol"',
+];
+
 const theme = createMuiTheme({
   palette,
   typography: {
     htmlFontSize: 16,
-    fontFamily: [
-      'Roboto',
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"SF Pro Text"',
-      '"Segoe UI"',
-      '"Helvetica Neue"',
-      'Helvetica',
-      'Verdana',
-      'Tahoma',
-      'Arial',
-      '"Noto Sans"',
-      '"Noto Sans CJK SC"',
-      '"Noto Sans SC"',
-      '"PingFang SC"',
-      '"Microsoft YaHei UI"',
-      '"Microsoft YaHei"',
-      'sans-serif',
-      '"Noto Color Emoji"',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
+    fontFamily: fontFamily.join(','),
     h1: {
       color: palette.text.primary,
       fontWeight: 500,

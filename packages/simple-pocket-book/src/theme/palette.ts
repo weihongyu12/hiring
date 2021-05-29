@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core/colors';
 
 const white = '#FFFFFF';
-const black = '#000000';
+const black = 'rgba(0, 0, 0, 0.87)';
 
 export default {
   black,
