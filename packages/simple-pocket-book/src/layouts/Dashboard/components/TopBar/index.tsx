@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     fontWeight: 700,
   },
   logoutButton: {
+    whiteSpace: 'nowrap',
     marginLeft: theme.spacing(1),
   },
   appBarWorkWeixin: {
@@ -118,6 +119,7 @@ const TopBar: FC<TopBarProps> = ({
           <Typography
             variant="h4"
             className={classes.brand}
+            noWrap
           >
             {REACT_APP_TITLE}
           </Typography>

@@ -38,10 +38,18 @@ const Result: FC<ResultProps> = ({
           />
         </Grid>
         <Grid item xs={12} sm={12} md={3}>
-          <Report data={incomeReport} className={classes.content} />
+          <Report
+            title="收入"
+            data={incomeReport}
+            className={classes.content}
+          />
         </Grid>
         <Grid item xs={12} sm={12} md={3}>
-          <Report data={expenditureReport} className={classes.content} />
+          <Report
+            title="支出"
+            data={expenditureReport}
+            className={classes.content}
+          />
         </Grid>
       </Grid>
     </div>

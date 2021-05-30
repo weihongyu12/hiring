@@ -16,6 +16,7 @@ import accounting from 'accounting';
 import { CategoryAnalytics } from 'types';
 
 export interface ReportProps {
+  title: string;
   data: CategoryAnalytics[];
   className?: string;
 }
@@ -31,13 +32,15 @@ const useStyles = makeStyles(() => createStyles({
 }));
 
 const Report: FC<ReportProps> = ({
+  title,
   data,
   className = '',
 }) => {
   const classes = useStyles();
+
   return (
     <Card className={clsx(classes.root, className)}>
-      <CardHeader title="收入" />
+      <CardHeader title={title} />
       <CardContent className={classes.content}>
         <TableContainer>
           <Table>

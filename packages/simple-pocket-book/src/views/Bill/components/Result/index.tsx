@@ -61,6 +61,9 @@ type TypeTag = Record<number, TagSetting>;
 
 const useStyles = makeStyles(() => createStyles({
   root: {},
+  tableCell: {
+    minWidth: '10em',
+  },
 }));
 
 const Result: FC<ResultProps> = ({
@@ -144,6 +147,7 @@ const Result: FC<ResultProps> = ({
               </TableCell>
               <TableCell
                 sortDirection={sortby === 'categoryId' ? order : false}
+                className={classes.tableCell}
               >
                 <TableSortLabel
                   active={sortby === 'categoryId'}
@@ -153,9 +157,10 @@ const Result: FC<ResultProps> = ({
                   账单分类
                 </TableSortLabel>
               </TableCell>
-              <TableCell>账单类型</TableCell>
+              <TableCell className={classes.tableCell}>账单类型</TableCell>
               <TableCell
                 sortDirection={sortby === 'amount' ? order : false}
+                className={classes.tableCell}
               >
                 <TableSortLabel
                   active={sortby === 'amount'}
@@ -167,6 +172,7 @@ const Result: FC<ResultProps> = ({
               </TableCell>
               <TableCell
                 sortDirection={sortby === 'categoryId' ? order : false}
+                className={classes.tableCell}
               >
                 <TableSortLabel
                   active={sortby === 'time'}
@@ -176,7 +182,7 @@ const Result: FC<ResultProps> = ({
                   账单时间
                 </TableSortLabel>
               </TableCell>
-              <TableCell>操作</TableCell>
+              <TableCell className={classes.tableCell}>操作</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -226,19 +232,19 @@ const Result: FC<ResultProps> = ({
             }
           </TableBody>
         </Table>
-        <TablePagination
-          count={count}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          SelectProps={{
-            inputProps: { 'aria-label': '每页行数' },
-            native: true,
-          }}
-          component="div"
-          onChangePage={handleChangePage}
-          onChangeRowsPerPage={handleChangeRowsPerPage}
-        />
       </TableContainer>
+      <TablePagination
+        count={count}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        SelectProps={{
+          inputProps: { 'aria-label': '每页行数' },
+          native: true,
+        }}
+        component="div"
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
       <TableEditBar
         selected={selected}
         onDelete={handleDelete}
