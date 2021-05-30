@@ -9,16 +9,22 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  TableSortLabel,
+  SortDirection,
 } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import clsx from 'clsx';
 import accounting from 'accounting';
 import { CategoryAnalytics } from 'types';
 
+type SortHandler = () => void;
+
 export interface ReportProps {
   title: string;
   data: CategoryAnalytics[];
+  order?: SortDirection;
   className?: string;
+  onSort?: SortHandler;
 }
 
 const useStyles = makeStyles(() => createStyles({
@@ -34,9 +40,15 @@ const useStyles = makeStyles(() => createStyles({
 const Report: FC<ReportProps> = ({
   title,
   data,
+  order = false,
   className = '',
+  onSort = () => {},
 }) => {
   const classes = useStyles();
+
+  const handleSort = () => {
+    onSort();
+  };
 
   return (
     <Card className={clsx(classes.root, className)}>
@@ -47,7 +59,18 @@ const Report: FC<ReportProps> = ({
             <TableHead>
               <TableRow>
                 <TableCell>账单分类</TableCell>
-                <TableCell align="right">合计金额</TableCell>
+                <TableCell
+                  align="right"
+                  sortDirection={order || false}
+                >
+                  <TableSortLabel
+                    active={!!(order)}
+                    direction={order || 'asc'}
+                    onClick={handleSort}
+                  >
+                    合计金额
+                  </TableSortLabel>
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
