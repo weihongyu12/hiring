@@ -843,6 +843,7 @@ module.exports = function (webpackEnv) {
       new ImageminWebpackPlugin({
         disable: isEnvDevelopment,
         test: /\.(jpe?g|png|gif|svg)$/i,
+        cacheFolder: path.join(paths.appNodeModules, '.cache', 'imagemin-webpack-plugin'),
         jpegtran: {
           progressive: true
         },
