@@ -63,7 +63,7 @@ const TopBar: FC<TopBarProps> = ({
   onOpenNavBarMobile = () => {},
 }) => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = useState<any|null>(null);
+  const [anchorEl, setAnchorEl] = useState<any | null>(null);
   const history = useHistory();
   const session = useAppSelector((state) => state.session);
   const dispatch = useAppDispatch();

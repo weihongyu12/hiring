@@ -66,7 +66,7 @@ const Notifications: FC = () => {
 
   const [list, setList] = useState<Message[]>([]);
   const [count, setCount] = useState<number>(0);
-  const [anchorEl, setAnchorEl] = useState<any|null>(null);
+  const [anchorEl, setAnchorEl] = useState<any | null>(null);
   const notificationsRef = useRef(null);
 
   const open = Boolean(anchorEl);
