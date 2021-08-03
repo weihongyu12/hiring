@@ -42,7 +42,7 @@ export const getUserInfoAsync = createAsyncThunk('session/user', async () => {
 
 export const logoutAsync = createAsyncThunk('session/logout', async () => {
   const response = await authService.logout();
-  return response.message;
+  return response;
 });
 
 export const sessionSlice = createSlice({

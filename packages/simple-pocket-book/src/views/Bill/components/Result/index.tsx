@@ -16,6 +16,7 @@ import {
   TablePagination,
   TableRow,
   TableSortLabel,
+  TableFooter,
   Tooltip,
 } from '@material-ui/core';
 import {
@@ -233,18 +234,22 @@ const Result: FC<ResultProps> = ({
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
-        count={count}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        SelectProps={{
-          inputProps: { 'aria-label': '每页行数' },
-          native: true,
-        }}
-        component="div"
-        onChangePage={handleChangePage}
-        onChangeRowsPerPage={handleChangeRowsPerPage}
-      />
+      <TableFooter>
+        <TableRow>
+          <TablePagination
+            count={count}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            SelectProps={{
+              inputProps: { 'aria-label': '每页行数' },
+              native: true,
+            }}
+            component="div"
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </TableRow>
+      </TableFooter>
       <TableEditBar
         selected={selected}
         onDelete={handleDelete}

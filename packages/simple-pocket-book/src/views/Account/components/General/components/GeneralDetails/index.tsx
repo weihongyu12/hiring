@@ -1,5 +1,6 @@
 import React, {
   useCallback,
+  useContext,
   useEffect,
   useState,
   FC,
@@ -30,9 +31,8 @@ import { useSnackbar } from 'notistack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import validate from 'validate.js';
-import { useAppSelector, useAppDispatch } from 'store';
-import { getUserInfoAsync } from 'reducers';
-import { accountService } from 'service';
+import { SessionContext } from 'components';
+import { accountService, authService } from 'service';
 
 export interface GeneralDetailsProps {
   className?: string;
@@ -89,8 +89,8 @@ const GeneralDetails: FC<GeneralDetailsProps> = (props) => {
   const { className } = props;
 
   const { enqueueSnackbar } = useSnackbar();
-  const { user } = useAppSelector((state) => state.session);
-  const dispatch = useAppDispatch();
+  const { session, onSetSession } = useContext(SessionContext);
+  const { user } = session;
 
   const [formState, setFormState] = useState<FormState>({
     isValid: false,
@@ -146,7 +146,11 @@ const GeneralDetails: FC<GeneralDetailsProps> = (props) => {
       enqueueSnackbar('保存修改成功', {
         variant: 'success',
       });
-      dispatch(getUserInfoAsync());
+      const response = await authService.user();
+      onSetSession({
+        ...session,
+        user: response,
+      });
     } catch (e) {
       enqueueSnackbar(e.message, {
         variant: 'error',

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { useContext, FC } from 'react';
 import {
   Card,
   CardContent,
@@ -29,7 +29,7 @@ import {
 } from '@material-ui/core/colors';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import clsx from 'clsx';
-import { useAppSelector } from 'store';
+import { SessionContext } from 'components';
 
 export interface ProfileDetailsProps {
   className?: string;
@@ -58,7 +58,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const ProfileDetails: FC<ProfileDetailsProps> = ({ className = '' }) => {
   const classes = useStyles();
 
-  const { user } = useAppSelector((state) => state.session);
+  const { session } = useContext(SessionContext);
+  const { user } = session;
 
   const avatarColorPalettes = [
     red[600],

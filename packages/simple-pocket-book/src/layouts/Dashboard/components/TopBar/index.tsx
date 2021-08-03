@@ -1,4 +1,9 @@
-import React, { useState, FC, MouseEventHandler } from 'react';
+import React, {
+  useContext,
+  useState,
+  FC,
+  MouseEventHandler,
+} from 'react';
 import { Link as RouterLink, useHistory } from 'react-router-dom';
 import {
   AppBar,
@@ -20,8 +25,8 @@ import InputIcon from '@material-ui/icons/Input';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import clsx from 'clsx';
-import { useAppSelector, useAppDispatch } from 'store';
-import { logoutAsync } from 'reducers';
+import { SessionContext } from 'components';
+import { authService } from 'service';
 import Notifications from './components/Notifications';
 
 const { REACT_APP_TITLE } = process.env;
@@ -65,8 +70,7 @@ const TopBar: FC<TopBarProps> = ({
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState<any | null>(null);
   const history = useHistory();
-  const session = useAppSelector((state) => state.session);
-  const dispatch = useAppDispatch();
+  const { session, onClearSession } = useContext(SessionContext);
 
   const appBarColor = isWorkWeixin ? 'default' : 'primary';
 
@@ -79,13 +83,12 @@ const TopBar: FC<TopBarProps> = ({
   };
 
   const handleLogout = async () => {
-    dispatch(logoutAsync());
+    await authService.logout();
+    onClearSession();
     if (navigator.credentials && navigator.credentials.preventSilentAccess) {
       navigator.credentials.preventSilentAccess();
     }
     await localStorage.removeItem('accessToken');
-    // TODO: 清除用户信息，该方式不安全，待提供token换用户信息接口后请移除
-    await localStorage.removeItem('user');
     history.push('/auth/login');
   };
 

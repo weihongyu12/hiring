@@ -25,6 +25,9 @@ export interface LoginResponse {
   accessToken: string;
 }
 
-export interface LogoutResponse {
-  message: string;
+export interface Session {
+  loggedIn: boolean;
+  accessToken: string;
+  refreshToken: string;
+  user: UserInfo | null;
 }

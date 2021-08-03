@@ -6,6 +6,8 @@ mock.onPost('/api/auth/login').reply(200, {
   accessToken: 'wtwXBuSNYvYiZPLQZAuTOucsZQx5My',
 });
 
+mock.onPost('/api/auth/logout').reply(200);
+
 mock.onGet('/api/auth/user').reply(200, {
   id: uuid(),
   username: '魏宏裕',

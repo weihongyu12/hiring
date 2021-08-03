@@ -3,7 +3,6 @@ import {
   UserInfo,
   LoginParams,
   LoginResponse,
-  LogoutResponse,
 } from 'types';
 
 const authService = {
@@ -30,11 +29,11 @@ const authService = {
       return Promise.reject(Error('网络故障，请检查您的网络'));
     }
   },
-  logout: async (): Promise<LogoutResponse> => {
+  logout: async (): Promise<void> => {
     try {
-      const response = await axios.post('/api/auth/login');
+      const response = await axios.post('/api/auth/logout');
       if (response.status === 200) {
-        return await Promise.resolve(response.data.message);
+        return await Promise.resolve();
       }
       return await Promise.reject(Error(response.data.message));
     } catch (e) {
